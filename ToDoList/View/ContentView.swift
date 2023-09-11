@@ -11,7 +11,10 @@ struct ContentView: View {
 
     @State private var tasks: [Task] = [Task(title: "123", isCompleted: false), Task(title: "123", isCompleted: false), Task(title: "123", isCompleted: false), Task(title: "123", isCompleted: false)]
     
+    @State private var taskFromTaskView: Task? 
+    
     @State private var currentDate: Date = .init()
+    @State private var createNewTask: Bool = false
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 0, content: {
@@ -25,7 +28,9 @@ struct ContentView: View {
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .overlay(alignment: .bottomTrailing, content: {
-                Button(action: {}, label: {
+                Button(action: {
+                    createNewTask.toggle()
+                }, label: {
                     Image(systemName: "plus")
                         .fontWidth(.standard)
                         .foregroundColor(.white)
@@ -33,6 +38,15 @@ struct ContentView: View {
                         .background(.blue)
                         .cornerRadius(30)
                 })
+            })
+            .sheet(isPresented: $createNewTask, content: {
+                AddNewTaskView(addTodo: {
+                    newTask in
+                    tasks.append(newTask)
+                })
+                    .presentationDetents([.height(350)])
+                    .interactiveDismissDisabled()
+                    .presentationCornerRadius(30)
             })
             .padding(20)
         }

@@ -11,7 +11,8 @@ struct TaskRowView: View {
     @Binding var task: Task
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
-            Image(systemName: task .isCompleted ? "circle.circle.fill": "circle")
+            Image(systemName: task .isCompleted ? "smallcircle.circle.fill": "circle")
+                .foregroundColor(.blue)
             .onTapGesture {
                     task.isCompleted.toggle()
                     print("task isCompleted")

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85C8409D2AA9D6BD003D465B /* AddNewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C8409C2AA9D6BD003D465B /* AddNewTaskView.swift */; };
 		85F1267B2AA3A19000114CF3 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1267A2AA3A19000114CF3 /* TaskModel.swift */; };
 		85F1267D2AA3A47700114CF3 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1267C2AA3A47700114CF3 /* TaskRowView.swift */; };
 		85F69FB02AA362CB0067A4B3 /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F69FAF2AA362CB0067A4B3 /* ToDoListApp.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		85C8409C2AA9D6BD003D465B /* AddNewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskView.swift; sourceTree = "<group>"; };
 		85F1267A2AA3A19000114CF3 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		85F1267C2AA3A47700114CF3 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
 		85F69FAC2AA362CB0067A4B3 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +53,7 @@
 			children = (
 				85F69FB12AA362CB0067A4B3 /* ContentView.swift */,
 				85F1267C2AA3A47700114CF3 /* TaskRowView.swift */,
+				85C8409C2AA9D6BD003D465B /* AddNewTaskView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85C8409D2AA9D6BD003D465B /* AddNewTaskView.swift in Sources */,
 				85F1267D2AA3A47700114CF3 /* TaskRowView.swift in Sources */,
 				85F69FB22AA362CB0067A4B3 /* ContentView.swift in Sources */,
 				85F69FB02AA362CB0067A4B3 /* ToDoListApp.swift in Sources */,
