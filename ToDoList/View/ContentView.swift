@@ -5,11 +5,12 @@
 //  Created by Станислав on 02.09.2023.
 //
 
+
 import SwiftUI
 
 struct ContentView: View {
 
-    @State private var tasks: [Task] = [Task(title: "123", isCompleted: false), Task(title: "123", isCompleted: false), Task(title: "123", isCompleted: false), Task(title: "123", isCompleted: false)]
+    @State private var tasks: [Task] = [Task(title: "123", isCompleted: false, color: .blue), Task(title: "123", isCompleted: false, color: .blue), Task(title: "123", isCompleted: false, color: .blue), Task(title: "123", isCompleted: false, color: .blue)]
     
     @State private var taskFromTaskView: Task? 
     

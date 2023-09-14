@@ -17,6 +17,7 @@ struct AddNewTaskView: View {
                     TextField("Task Name", text: $taskName)
                     
                     DatePicker("Time", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
+                        .environment(\.locale, Locale(identifier: "en_GB"))
                 }
                 
                 Section(header: Text("Task Color")) {
@@ -25,8 +26,14 @@ struct AddNewTaskView: View {
                             Circle()
                                 .fill(taskColors[index])
                                 .frame(width: 20, height: 20)
+                                .overlay(
+                                    Circle()
+                                        .stroke(selectedColorIndex == index ? Color.black : Color.clear, lineWidth: 2)
+                                )
                                 .onTapGesture {
-                                    selectedColorIndex = index
+                                    withAnimation {
+                                        selectedColorIndex = index
+                                    }
                                 }
                         }
                     }
@@ -38,11 +45,11 @@ struct AddNewTaskView: View {
                     presentationMode.wrappedValue.dismiss()
                 },
                 trailing: Button("Save") {
-                    let task = Task(title: taskName, dueDate: selectedDate, isCompleted: isCompleted)
+                    let task = Task(title: taskName, dueDate: selectedDate, isCompleted: isCompleted, color: taskColors[selectedColorIndex])
                     addTodo(task)
                     presentationMode.wrappedValue.dismiss()
                 }
-                .disabled(taskName.isEmpty) // Disable the "Save" button if taskName is empty
+                    .disabled(taskName.isEmpty) // Disable the "Save" button if taskName is empty
             )
         }
     }
