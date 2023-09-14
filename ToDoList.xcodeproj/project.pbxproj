@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		85C8409D2AA9D6BD003D465B /* AddNewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C8409C2AA9D6BD003D465B /* AddNewTaskView.swift */; };
+		85E0CB002AB8E167006E25B9 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E0CAFF2AB8E167006E25B9 /* View+Extensions.swift */; };
 		85F1267B2AA3A19000114CF3 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1267A2AA3A19000114CF3 /* TaskModel.swift */; };
 		85F1267D2AA3A47700114CF3 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1267C2AA3A47700114CF3 /* TaskRowView.swift */; };
 		85F69FB02AA362CB0067A4B3 /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F69FAF2AA362CB0067A4B3 /* ToDoListApp.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		85C8409C2AA9D6BD003D465B /* AddNewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskView.swift; sourceTree = "<group>"; };
+		85E0CAFF2AB8E167006E25B9 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		85F1267A2AA3A19000114CF3 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		85F1267C2AA3A47700114CF3 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
 		85F69FAC2AA362CB0067A4B3 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				85F69FC02AA3652B0067A4B3 /* Date+Extensions.swift */,
+				85E0CAFF2AB8E167006E25B9 /* View+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				85C8409D2AA9D6BD003D465B /* AddNewTaskView.swift in Sources */,
 				85F1267D2AA3A47700114CF3 /* TaskRowView.swift in Sources */,
 				85F69FB22AA362CB0067A4B3 /* ContentView.swift in Sources */,
+				85E0CB002AB8E167006E25B9 /* View+Extensions.swift in Sources */,
 				85F69FB02AA362CB0067A4B3 /* ToDoListApp.swift in Sources */,
 				85F1267B2AA3A19000114CF3 /* TaskModel.swift in Sources */,
 				85F69FC12AA3652B0067A4B3 /* Date+Extensions.swift in Sources */,
