@@ -4,6 +4,7 @@ struct AddNewTaskView: View {
     @Environment(\.presentationMode) var presentationMode
     let addTodo: (Task) -> Void
     @State private var taskName = ""
+    @State private var taskDiscription = ""
     @State private var selectedDate = Date() // Initialize with the current date and time
     @State private var selectedColorIndex = 0
     @State private var isCompleted = false
@@ -15,28 +16,13 @@ struct AddNewTaskView: View {
             Form {
                 Section(header: Text("Task Details")) {
                     TextField("Task Name", text: $taskName)
-                    
+                    taskColorStack()
                     DatePicker("Time", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
                         .environment(\.locale, Locale(identifier: "en_GB"))
                 }
-                
-                Section(header: Text("Task Color")) {
-                    HStack {
-                        ForEach(0..<taskColors.count, id: \.self) { index in
-                            Circle()
-                                .fill(taskColors[index])
-                                .frame(width: 20, height: 20)
-                                .overlay(
-                                    Circle()
-                                        .stroke(selectedColorIndex == index ? Color.black : Color.clear, lineWidth: 2)
-                                )
-                                .onTapGesture {
-                                    withAnimation {
-                                        selectedColorIndex = index
-                                    }
-                                }
-                        }
-                    }
+                Section(header: Text("Task Details")) {
+                    TextField("Task description", text: $taskDiscription)
+                    
                 }
             }
             .navigationTitle("Add Task")
@@ -53,5 +39,28 @@ struct AddNewTaskView: View {
             )
         }
     }
+    @ViewBuilder
+    func taskColorStack() -> some View {
+        HStack {
+            Text("Task Color")
+            HStack {
+                ForEach(0..<taskColors.count, id: \.self) { index in
+                    Circle()
+                        .fill(taskColors[index])
+                        .frame(width: 20, height: 20)
+                        .overlay(
+                            Circle()
+                                .stroke(selectedColorIndex == index ? Color.black : Color.clear, lineWidth: 2)
+                        )
+                        .onTapGesture {
+                            withAnimation {
+                                selectedColorIndex = index
+                            }
+                        }
+                }
+            }
+            .hSpacing(.trailing)
+            .padding([.horizontal], 15)
+        }
+    }
 }
-
