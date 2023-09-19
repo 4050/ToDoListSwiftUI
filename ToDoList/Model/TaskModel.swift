@@ -11,6 +11,7 @@ import SwiftUI
 struct Task: Identifiable {
     var id = UUID()
     var title: String
+    var taskDescription: String
     var dueDate: Date
     var creationDate: Date = .init()
     var isCompleted: Bool = false

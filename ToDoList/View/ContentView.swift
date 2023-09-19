@@ -11,10 +11,10 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var tasks: [Task] = [
-        Task(title: "Задача 1", dueDate: Date(), isCompleted: false, color: .blue.opacity(0.511)),
-        Task(title: "Задача 2", dueDate: Date().addingTimeInterval(86400), isCompleted: false, color: .red.opacity(0.5)),
-        Task(title: "Задача 3", dueDate: Date().addingTimeInterval(172800), isCompleted: false, color: .green.opacity(0.5)),
-        Task(title: "Задача 4", dueDate: Date().addingTimeInterval(259200), isCompleted: false, color: .yellow.opacity(0.5))
+        Task(title: "Задача 1", taskDescription: "", dueDate: Date.init(),  isCompleted: false, color: .blue.opacity(0.5)),
+        Task(title: "Задача 2", taskDescription: "", dueDate: Date().addingTimeInterval(86400),  isCompleted: false, color: .red.opacity(0.5)),
+        Task(title: "Задача 3", taskDescription: "", dueDate: Date().addingTimeInterval(172800), isCompleted: false, color: .green.opacity(0.5)),
+        Task(title: "Задача 4", taskDescription: "", dueDate: Date().addingTimeInterval(259200),  isCompleted: false, color: .yellow.opacity(0.5))
     ]
     
     @State private var taskFromTaskView: Task?
