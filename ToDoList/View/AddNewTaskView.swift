@@ -1,66 +1,108 @@
 import SwiftUI
 
 struct AddNewTaskView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     let addTodo: (Task) -> Void
     @State private var taskName = ""
     @State private var taskDescription = ""
     @State private var selectedDate = Date()
-    @State private var selectedColorIndex = 0
+    @State private var selectedColorIndex: Color = .red
     @State private var isCompleted = false
     
     let taskColors: [Color] = [.red, .blue, .green, .yellow, .purple] // Define your basic colors
     
     var body: some View {
-        NavigationView {
-            Form {
-                Section(header: Text("Task Details")) {
-                    TextField("Task Name", text: $taskName)
-                    taskColorStack()
-                    DatePicker("Time", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
-                        .environment(\.locale, Locale(identifier: "en_GB"))
-                }
-                Section(header: Text("Task Details")) {
-                    TextField("Task description", text: $taskDescription)
+        VStack(alignment: .leading, spacing: 15, content: {
+            Button(action: {
+                dismiss()
+            }, label: {
+                Image(systemName: "xmark.circle")
+                    .font(.title)
+                    .tint(.red)
+            })
+            .hSpacing(.leading)
+            
+            VStack(alignment: .leading, spacing: 8, content: {
+                Text("Task Title")
+                    .font(.caption)
+                    .foregroundStyle(.gray)
+                
+                TextField("Go for a walk", text: $taskName)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 15)
+                    .background(.white.shadow(.drop(color: .black.opacity(0.25), radius: 2)), in: .rect(cornerRadius: 10))
+            })
+            .padding(.top, 5)
+            
+            HStack(spacing: 12, content: {
+                VStack(alignment: .leading, spacing: 8, content: {
+                    Text("Task Date")
+                        .font(.caption)
+                        .foregroundStyle(.gray)
                     
-                }
-            }
-            .navigationTitle("Add Task")
-            .navigationBarItems(
-                leading: Button("Cancel") {
-                    presentationMode.wrappedValue.dismiss()
-                },
-                trailing: Button("Save") {
-                    let task = Task(title: taskName, taskDescription: taskDescription, dueDate: selectedDate, isCompleted: isCompleted, color: taskColors[selectedColorIndex])
-                    addTodo(task)
-                    presentationMode.wrappedValue.dismiss()
-                }
-                    .disabled(taskName.isEmpty) // Disable the "Save" button if taskName is empty
-            )
-        }
-    }
-    @ViewBuilder
-    func taskColorStack() -> some View {
-        HStack {
-            Text("Task Color")
-            HStack {
-                ForEach(0..<taskColors.count, id: \.self) { index in
-                    Circle()
-                        .fill(taskColors[index])
-                        .frame(width: 20, height: 20)
-                        .overlay(
+                    DatePicker("", selection: $selectedDate)
+                        .datePickerStyle(.compact)
+                        .scaleEffect(0.9, anchor: .leading)
+                        .environment(\.locale, Locale(identifier: "en_GB"))
+                })
+                .padding(.top, 5)
+                .padding(.trailing, -15)
+                
+                VStack(alignment: .leading, spacing: 16, content: {
+                    Text("Task Color")
+                        .font(.caption2)
+                        .foregroundStyle(.gray)
+                    
+                    HStack(spacing: 0, content: {
+                        ForEach(taskColors, id: \.self) { color in
                             Circle()
-                                .stroke(selectedColorIndex == index ? Color.black : Color.clear, lineWidth: 2)
-                        )
-                        .onTapGesture {
-                            withAnimation {
-                                selectedColorIndex = index
-                            }
+                                .fill(color)
+                                .frame(width: 20, height: 20)
+                                .background(content: {
+                                    Circle()
+                                        .stroke(lineWidth: 2)
+                                        .opacity(selectedColorIndex == color ? 1: 0)
+                                })
+                                .hSpacing(.center)
+                                .contentShape(.rect)
+                                .onTapGesture() {
+                                    withAnimation(.snappy) {
+                                        selectedColorIndex = color
+                                    }
+                                }
+                            
                         }
-                }
-            }
-            .hSpacing(.trailing)
-            .padding([.horizontal], 15)
-        }
+                    })
+                })
+                .padding(.top, 5)
+            })
+            VStack(alignment: .leading, spacing: 15, content: {
+                VStack(alignment: .leading, spacing: 8, content: {
+                    Text("Description Task")
+                        .font(.caption)
+                        .foregroundStyle(.gray)
+                    
+                    TextEditor(text: $taskDescription)
+                    //.padding(.vertical, 12)
+                        .padding(.horizontal, 15)
+                        .background(.white.shadow(.drop(color: .black.opacity(0.25), radius: 2)), in: .rect(cornerRadius: 10))
+                })
+                .padding(.top, 5)
+                
+                Button(action: {}, label: {
+                    Text("Create Task")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.black)
+                        .hSpacing(.center)
+                        .padding(.vertical, 12)
+                        .background(selectedColorIndex, in: .rect(cornerRadius: 20))
+                })
+                .disabled(taskName == "")
+                .opacity(taskName == "" ? 0.5 : 1)
+            })
+        })
+        .padding(15)
     }
+    
 }

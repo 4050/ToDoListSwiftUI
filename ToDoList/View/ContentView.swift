@@ -50,7 +50,7 @@ struct ContentView: View {
                 newTask in
                 tasks.append(newTask)
             })
-            .presentationDetents([.height(350)])
+            .presentationDetents([.height(450)])
             .interactiveDismissDisabled()
             .presentationCornerRadius(30)
         })
