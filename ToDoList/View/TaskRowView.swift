@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct TaskRowView: View {
-    @Binding var task: Task
+    @Bindable var task: TaskModel
+    
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
             Image(systemName: task .isCompleted ? "smallcircle.circle.fill": "circle")
-                .foregroundColor(task.color)
+                .foregroundColor(task.tintColor)
             .onTapGesture {
                     task.isCompleted.toggle()
                     print("task isCompleted")
@@ -26,14 +27,10 @@ struct TaskRowView: View {
             })
             .padding(15)
             .hSpacing(.leading)
-            .background(task.color, in: .rect(topLeadingRadius: 15, bottomLeadingRadius: 15, bottomTrailingRadius: 15, topTrailingRadius: 15)) .padding(.trailing)
+            .background(task.tintColor, in: .rect(topLeadingRadius: 15, bottomLeadingRadius: 15, bottomTrailingRadius: 15, topTrailingRadius: 15)) .padding(.trailing)
             .strikethrough(task.isCompleted, pattern: .solid, color: .black)
             .offset(y: -8)
         }
         .hSpacing(.leading)
     }
-}
-
-#Preview {
-    ContentView()
 }

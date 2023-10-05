@@ -2,14 +2,17 @@ import SwiftUI
 
 struct AddNewTaskView: View {
     @Environment(\.dismiss) var dismiss
-    let addTodo: (Task) -> Void
+    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.modelContext) var contex
+    
+    let addTodo: (TaskModel) -> Void
     @State private var taskName = ""
     @State private var taskDescription = ""
     @State private var selectedDate = Date()
-    @State private var selectedColorIndex: Color = .red
+    @State private var selectedColorIndex: String = "TaskColor1"
     @State private var isCompleted = false
     
-    let taskColors: [Color] = [.red, .blue, .green, .yellow, .purple] // Define your basic colors
+    let taskColors: [String] = ["TaskColor1", "TaskColor2", "TaskColor3", "TaskColor4", "TaskColor5"]
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15, content: {
@@ -56,7 +59,7 @@ struct AddNewTaskView: View {
                     HStack(spacing: 0, content: {
                         ForEach(taskColors, id: \.self) { color in
                             Circle()
-                                .fill(color)
+                                .fill(Color(color))
                                 .frame(width: 20, height: 20)
                                 .background(content: {
                                     Circle()
@@ -83,20 +86,26 @@ struct AddNewTaskView: View {
                         .foregroundStyle(.gray)
                     
                     TextEditor(text: $taskDescription)
-                    //.padding(.vertical, 12)
                         .padding(.horizontal, 15)
                         .background(.white.shadow(.drop(color: .black.opacity(0.25), radius: 2)), in: .rect(cornerRadius: 10))
                 })
                 .padding(.top, 5)
                 
-                Button(action: {}, label: {
+                Button(action: {
+                    let task = TaskModel(title: taskName, taskDescription: taskDescription, dueDate: selectedDate, creationDate: Date.init(), isCompleted: isCompleted, color: selectedColorIndex)
+                    withAnimation {
+                        addTodo(task)
+                        contex.insert(task)
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }, label: {
                     Text("Create Task")
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundStyle(.black)
                         .hSpacing(.center)
                         .padding(.vertical, 12)
-                        .background(selectedColorIndex, in: .rect(cornerRadius: 20))
+                        .background(Color(selectedColorIndex), in: .rect(cornerRadius: 20))
                 })
                 .disabled(taskName == "")
                 .opacity(taskName == "" ? 0.5 : 1)

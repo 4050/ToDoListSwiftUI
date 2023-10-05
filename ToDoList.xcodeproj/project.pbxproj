@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85AEFF2A2ACC168C00BFD643 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEFF292ACC168C00BFD643 /* TaskView.swift */; };
 		85C8409D2AA9D6BD003D465B /* AddNewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C8409C2AA9D6BD003D465B /* AddNewTaskView.swift */; };
 		85E0CB002AB8E167006E25B9 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E0CAFF2AB8E167006E25B9 /* View+Extensions.swift */; };
 		85F1267B2AA3A19000114CF3 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1267A2AA3A19000114CF3 /* TaskModel.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		85AEFF292ACC168C00BFD643 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		85C8409C2AA9D6BD003D465B /* AddNewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskView.swift; sourceTree = "<group>"; };
 		85E0CAFF2AB8E167006E25B9 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		85F1267A2AA3A19000114CF3 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				85F69FB12AA362CB0067A4B3 /* ContentView.swift */,
 				85F1267C2AA3A47700114CF3 /* TaskRowView.swift */,
 				85C8409C2AA9D6BD003D465B /* AddNewTaskView.swift */,
+				85AEFF292ACC168C00BFD643 /* TaskView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85AEFF2A2ACC168C00BFD643 /* TaskView.swift in Sources */,
 				85C8409D2AA9D6BD003D465B /* AddNewTaskView.swift in Sources */,
 				85F1267D2AA3A47700114CF3 /* TaskRowView.swift in Sources */,
 				85F69FB22AA362CB0067A4B3 /* ContentView.swift in Sources */,
@@ -319,6 +323,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -348,6 +353,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
