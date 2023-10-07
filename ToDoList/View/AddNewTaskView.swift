@@ -4,15 +4,14 @@ struct AddNewTaskView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.modelContext) var contex
-    
-    let addTodo: (TaskModel) -> Void
+
     @State private var taskName = ""
     @State private var taskDescription = ""
     @State private var selectedDate = Date()
-    @State private var selectedColorIndex: String = "TaskColor1"
+    @State private var selectedColorIndex: String = Colors.taskColor1.rawValue
     @State private var isCompleted = false
     
-    let taskColors: [String] = ["TaskColor1", "TaskColor2", "TaskColor3", "TaskColor4", "TaskColor5"]
+    let taskColors: [String] = [Colors.taskColor1.rawValue, Colors.taskColor2.rawValue, Colors.taskColor3.rawValue, Colors.taskColor4.rawValue, Colors.taskColor5.rawValue]
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15, content: {
@@ -94,7 +93,6 @@ struct AddNewTaskView: View {
                 Button(action: {
                     let task = TaskModel(title: taskName, taskDescription: taskDescription, dueDate: selectedDate, creationDate: Date.init(), isCompleted: isCompleted, color: selectedColorIndex)
                     withAnimation {
-                        addTodo(task)
                         contex.insert(task)
                         presentationMode.wrappedValue.dismiss()
                     }

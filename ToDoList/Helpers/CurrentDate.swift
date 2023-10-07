@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+enum CurrentDate {
+    static func today() -> Date {
+        return Calendar.current.startOfDay(for: Date())
+    }
+
+    static func tomorrow() -> Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: today())!
+    }
+}

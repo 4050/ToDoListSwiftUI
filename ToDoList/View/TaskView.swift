@@ -14,30 +14,58 @@ struct TaskView: View {
     @Query private var tasksQuery: [TaskModel]
     
     var body: some View {
-        let today = Calendar.current.startOfDay(for: currentDate)
-        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)!
-        let future = Calendar.current.date(byAdding: .day, value: 2, to: today)!
-        
         VStack(alignment: .leading, spacing: 15) {
-            ForEach(tasksQuery) { task in
-                if Calendar.current.isDate(task.dueDate, inSameDayAs: today) {
-                    TaskRowView(task: task)
-                }
+            let todayTasks = tasksQuery.filter { task in
+                task.dueDate == CurrentDate.today()
+            }
+            ForEach(todayTasks) { task in
+                TaskRowView(task: task)
+            }
+            if todayTasks.isEmpty {
+                Text("Нет задач")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
             }
             
             Section(header: Text("Завтра").font(.title).bold()) {
-                ForEach(tasksQuery) { task in
-                    if Calendar.current.isDate(task.dueDate, inSameDayAs: tomorrow) {
-                        TaskRowView(task: task)
-                    }
+                let tomorrowTasks = tasksQuery.filter { task in
+                    task.dueDate == CurrentDate.tomorrow()
+                }
+                ForEach(tomorrowTasks) { task in
+                    TaskRowView(task: task)
+                }
+                if tomorrowTasks.isEmpty {
+                    Text("Нет задач")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
                 }
             }
             
             Section(header: Text("Будущее").font(.title).bold()) {
-                ForEach(tasksQuery) { task in
-                    if Calendar.current.isDate(task.dueDate, inSameDayAs: future) {
-                        TaskRowView(task: task)
-                    }
+                let futureTasks = tasksQuery.filter { task in
+                    task.dueDate > CurrentDate.tomorrow()
+                }
+                ForEach(futureTasks) { task in
+                    TaskRowView(task: task)
+                }
+                if futureTasks.isEmpty {
+                    Text("Нет задач")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+            }
+            
+            Section(header: Text("Не выполненные").font(.title).bold()) {
+                let overdueTasks = tasksQuery.filter { task in
+                    task.dueDate < CurrentDate.today()
+                }
+                ForEach(overdueTasks) { task in
+                    TaskRowView(task: task)
+                }
+                if overdueTasks.isEmpty {
+                    Text("Нет задач")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
                 }
             }
         }
@@ -45,5 +73,3 @@ struct TaskView: View {
         .padding(.top, 5)
     }
 }
-
-

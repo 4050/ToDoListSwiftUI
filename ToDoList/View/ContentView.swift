@@ -20,8 +20,8 @@ struct ContentView: View {
             ScrollView(.vertical) {
                 TaskView()
             }
-            .hSpacing(.center)
-            .vSpacing(.center)
+            // .hSpacing(.center)
+            // .vSpacing(.center)
             .scrollIndicators(.hidden)
         })
         .vSpacing(.top)
@@ -39,14 +39,10 @@ struct ContentView: View {
             .padding(20)
         })
         .sheet(isPresented: $createNewTask, content: {
-            AddNewTaskView(addTodo: {
-                newTask in
-                //tasks.append(newTask)
-                // viewModel.addSample(task: newTask, contex: viewModel.modelContext)
-            })
-            .presentationDetents([.height(450)])
-            .interactiveDismissDisabled()
-            .presentationCornerRadius(30)
+            AddNewTaskView()
+                .presentationDetents([.height(450)])
+                .interactiveDismissDisabled()
+                .presentationCornerRadius(30)
         })
     }
     
@@ -54,15 +50,11 @@ struct ContentView: View {
     func HeaderView() -> some View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 5) {
-                
-                Text("Сегодня")
+                Text(currentDate.format("MMMM"))
                     .foregroundStyle(.blue)
                 
-                //    Text(currentDate.format("MMMM"))
-                //        .foregroundStyle(.blue)
-                //
-                //    Text(currentDate.format("YYYY"))
-                //       .foregroundStyle(.gray)
+                Text(currentDate.format("YYYY"))
+                    .foregroundStyle(.gray)
             }
             .font(.title.bold())
             Text(currentDate.formatted(date: .abbreviated, time: .omitted))
