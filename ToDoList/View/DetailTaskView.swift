@@ -1,14 +1,24 @@
+//
+//  DetailTaskView.swift
+//  ToDoList
+//
+//  Created by Станислав on 25.10.2023.
+//
+
+import Foundation
 import SwiftUI
 
-struct AddNewTaskView: View {
+
+struct DetailTaskView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.modelContext) var contex
     
+    @Bindable var task: TaskModel
     @State private var taskName = ""
     @State private var taskDescription = ""
     @State private var selectedDate = Date()
-    @State private var selectedColorIndex: String = Colors.taskColor1.rawValue
+    @State private var selectedColorIndex: String = ""
     @State private var isCompleted = false
     
     let taskColors: [String] = [Colors.taskColor1.rawValue, Colors.taskColor2.rawValue, Colors.taskColor3.rawValue, Colors.taskColor4.rawValue, Colors.taskColor5.rawValue]
@@ -69,7 +79,7 @@ struct AddNewTaskView: View {
                                 .contentShape(.rect)
                                 .onTapGesture() {
                                     withAnimation(.snappy) {
-                                        selectedColorIndex = color
+                                       selectedColorIndex = color
                                     }
                                 }
                             
@@ -92,11 +102,10 @@ struct AddNewTaskView: View {
                 
                 Button(action: {
                     let task = TaskModel(title: taskName, taskDescription: taskDescription, dueDate: selectedDate, creationDate: Date.init(), isCompleted: isCompleted, color: selectedColorIndex)
-                        saveNewTask(item: task)
-                        print("CONTEX SAVE")
-                        presentationMode.wrappedValue.dismiss()
+                    updateTask(item: task)
+                    presentationMode.wrappedValue.dismiss()
                 }, label: {
-                    Text("Create Task")
+                    Text("Update task")
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundStyle(.black)
@@ -109,13 +118,22 @@ struct AddNewTaskView: View {
             })
         })
         .padding(15)
+        .onAppear {
+            taskName = task.title
+            taskDescription = task.taskDescription
+            selectedDate = task.dueDate
+            selectedColorIndex = task.color
+            isCompleted = task.isCompleted
+        }
     }
 }
 
-extension AddNewTaskView {
-    func saveNewTask(item: TaskModel) {
+extension DetailTaskView {
+    func updateTask(item: TaskModel) {
         withAnimation {
-            contex.insert(item)
+            $task.title.wrappedValue = taskName
+            $task.color.wrappedValue = selectedColorIndex
+            $task.dueDate.wrappedValue = selectedDate
         }
     }
 }

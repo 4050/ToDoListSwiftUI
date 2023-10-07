@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		850094B72AD5BDBB00B12797 /* NewTaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850094B62AD5BDBB00B12797 /* NewTaskRowView.swift */; };
+		8592BE642AE9361400C94022 /* DetailTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8592BE632AE9361400C94022 /* DetailTaskView.swift */; };
 		85AEFF2A2ACC168C00BFD643 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEFF292ACC168C00BFD643 /* TaskView.swift */; };
+		85BF3F1B2AD179A800E53918 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BF3F1A2AD179A800E53918 /* Colors.swift */; };
 		85C8409D2AA9D6BD003D465B /* AddNewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C8409C2AA9D6BD003D465B /* AddNewTaskView.swift */; };
+		85D17C032AD176160012E5D0 /* CurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D17C022AD176160012E5D0 /* CurrentDate.swift */; };
 		85E0CB002AB8E167006E25B9 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E0CAFF2AB8E167006E25B9 /* View+Extensions.swift */; };
 		85F1267B2AA3A19000114CF3 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1267A2AA3A19000114CF3 /* TaskModel.swift */; };
 		85F1267D2AA3A47700114CF3 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1267C2AA3A47700114CF3 /* TaskRowView.swift */; };
@@ -20,8 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		850094B62AD5BDBB00B12797 /* NewTaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskRowView.swift; sourceTree = "<group>"; };
+		8592BE632AE9361400C94022 /* DetailTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTaskView.swift; sourceTree = "<group>"; };
 		85AEFF292ACC168C00BFD643 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		85BF3F1A2AD179A800E53918 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		85C8409C2AA9D6BD003D465B /* AddNewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskView.swift; sourceTree = "<group>"; };
+		85D17C022AD176160012E5D0 /* CurrentDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDate.swift; sourceTree = "<group>"; };
 		85E0CAFF2AB8E167006E25B9 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		85F1267A2AA3A19000114CF3 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		85F1267C2AA3A47700114CF3 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
@@ -59,6 +67,8 @@
 				85F1267C2AA3A47700114CF3 /* TaskRowView.swift */,
 				85C8409C2AA9D6BD003D465B /* AddNewTaskView.swift */,
 				85AEFF292ACC168C00BFD643 /* TaskView.swift */,
+				850094B62AD5BDBB00B12797 /* NewTaskRowView.swift */,
+				8592BE632AE9361400C94022 /* DetailTaskView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,6 +115,8 @@
 			children = (
 				85F69FC02AA3652B0067A4B3 /* Date+Extensions.swift */,
 				85E0CAFF2AB8E167006E25B9 /* View+Extensions.swift */,
+				85D17C022AD176160012E5D0 /* CurrentDate.swift */,
+				85BF3F1A2AD179A800E53918 /* Colors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -137,7 +149,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					85F69FAB2AA362CB0067A4B3 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -180,10 +192,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				85AEFF2A2ACC168C00BFD643 /* TaskView.swift in Sources */,
+				85BF3F1B2AD179A800E53918 /* Colors.swift in Sources */,
 				85C8409D2AA9D6BD003D465B /* AddNewTaskView.swift in Sources */,
+				850094B72AD5BDBB00B12797 /* NewTaskRowView.swift in Sources */,
 				85F1267D2AA3A47700114CF3 /* TaskRowView.swift in Sources */,
 				85F69FB22AA362CB0067A4B3 /* ContentView.swift in Sources */,
+				85D17C032AD176160012E5D0 /* CurrentDate.swift in Sources */,
 				85E0CB002AB8E167006E25B9 /* View+Extensions.swift in Sources */,
+				8592BE642AE9361400C94022 /* DetailTaskView.swift in Sources */,
 				85F69FB02AA362CB0067A4B3 /* ToDoListApp.swift in Sources */,
 				85F1267B2AA3A19000114CF3 /* TaskModel.swift in Sources */,
 				85F69FC12AA3652B0067A4B3 /* Date+Extensions.swift in Sources */,
@@ -229,6 +245,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -243,7 +260,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -289,6 +306,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -297,7 +315,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
