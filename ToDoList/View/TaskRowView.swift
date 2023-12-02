@@ -23,9 +23,9 @@ struct TaskRowView: View {
             VStack(alignment: .leading, spacing: 8, content: {
                 Text(task.title)
                     .fontWeight(.semibold)
-                Label(task.dueDate.format("dd MMM HH:mm "), systemImage: "")
-                    .font(.caption)
-                    .environment(\.locale, Locale(identifier: "en_GB"))
+                //Label(task.dueDate.format("dd MMM HH:mm "), systemImage: "")
+                //    .font(.caption)
+                 //   .environment(\.locale, Locale(identifier: "en_GB"))
             })
             .strikethrough(task.isCompleted, pattern: .solid, color: .black)
             .contentShape(.contextMenuPreview, .rect(topLeadingRadius: 15, bottomLeadingRadius: 15, bottomTrailingRadius: 15, topTrailingRadius: 15))

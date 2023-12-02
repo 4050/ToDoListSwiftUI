@@ -17,10 +17,10 @@ struct ContentView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0, content: {
             HeaderView()
-           // ScrollView(.vertical) {
+            ScrollView(.vertical) {
                 TaskView()
-           // }
-            // .scrollIndicators(.hidden)
+            }
+            .scrollIndicators(.hidden)
         })
         .vSpacing(.top)
         .overlay(alignment: .bottomTrailing, content: {
