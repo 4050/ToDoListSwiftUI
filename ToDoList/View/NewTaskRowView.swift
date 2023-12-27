@@ -11,6 +11,7 @@ import SwiftUI
 struct NewTaskRowView: View {
     @Bindable var task: TaskModel
     @Environment(\.modelContext) var contex
+    @State private var isShowingTaskEdit = false
     @State private var isShowingTaskDetail = false
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -57,14 +58,14 @@ struct NewTaskRowView: View {
                         })
                         Button("Edit task", role: .destructive, action: {
                             withAnimation(.easeInOut) {
-                                isShowingTaskDetail.toggle()
+                                isShowingTaskEdit.toggle()
                             }
                         })
                     })
                 } actions: {
                     Action(tint: .blue, icon: "pencil") {
                         withAnimation(.easeInOut) {
-                            isShowingTaskDetail.toggle()
+                            isShowingTaskEdit.toggle()
                         }
                     }
                     Action(tint: .red, icon: "trash.fill") {
@@ -75,9 +76,19 @@ struct NewTaskRowView: View {
                     }
                 }
             }
+            .onTapGesture {
+                // Toggle the sheet when the cell is tapped
+                isShowingTaskDetail.toggle()
+            }
             .offset(x: -8)
             .strikethrough(task.isCompleted, pattern: .solid, color: .black)
         }
+        .sheet(isPresented: $isShowingTaskEdit, content: {
+            EditTaskView(task: task)
+                .presentationDetents([.height(450)])
+                .interactiveDismissDisabled()
+                .presentationCornerRadius(30)
+        })
         .sheet(isPresented: $isShowingTaskDetail, content: {
             DetailTaskView(task: task)
                 .presentationDetents([.height(450)])
