@@ -43,10 +43,10 @@ struct NewTaskRowView: View {
                             .environment(\.locale, Locale(identifier: "en_GB"))
                     }
                     .foregroundColor(.black)
-                    .padding(.horizontal, 10)
+                    .padding(.horizontal, 15)
                     .padding(.vertical, 10)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                    .background(.white)
+                    .background(Color(task.color).opacity(0.2))
                     .cornerRadius(10)
                     .contentShape(.contextMenuPreview, .rect(topLeadingRadius: 10, bottomLeadingRadius: 10, bottomTrailingRadius: 10, topTrailingRadius: 10))
                     .contextMenu(menuItems: {

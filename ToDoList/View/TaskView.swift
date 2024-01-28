@@ -56,7 +56,7 @@ struct TaskView: View {
                     task.dueDate >= CurrentDate.future()
                 }
                 ForEach(futureTasks) { task in
-                    TaskRowView(task: task)
+                    NewTaskRowView(task: task)
                 }
                 if futureTasks.isEmpty {
                     Text("Нет задач")
