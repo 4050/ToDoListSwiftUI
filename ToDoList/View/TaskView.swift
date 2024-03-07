@@ -12,7 +12,7 @@ struct TaskView: View {
     
     @State private var currentDate: Date = .init()
     @Query private var tasksQuery: [TaskModel]
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             //NavigationView {
@@ -81,12 +81,8 @@ struct TaskView: View {
                 }
             }
         }
-        //}
-        // .listStyle(.plain)
         .scrollContentBackground(.hidden)
-        //.listRowSeparator(.hidden)
         .padding([.vertical, .leading], 15)
         .padding(.top, 5)
-        //}
     }
 }

@@ -25,19 +25,24 @@ struct DetailTaskView: View {
                     .font(.title2)
                     .foregroundColor(.primary)
             })
-                VStack(alignment: .leading, spacing: 15, content: {
-                    Text("Описание:")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                    ScrollView(.vertical) {
-                        Text(task.taskDescription)
-                            .font(.body)
-                            .foregroundColor(.secondary)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    .scrollIndicators(.visible)
-                })
-                .padding(.bottom, 15)
+            
+            VStack(alignment: .leading, spacing: 15, content: {
+                Text("Описание:")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                ScrollView(.vertical) {
+                    Text(task.taskDescription)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding()
+                .scrollIndicators(.visible)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.white)
+                        .shadow(color: Color.black.opacity(0.25), radius: 2)
+                )
+            })
+            .padding(.bottom, 15)
             
             HStack (spacing: 0, content: {
                 Button(action: {

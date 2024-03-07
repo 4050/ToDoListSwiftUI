@@ -13,6 +13,7 @@ struct NewTaskRowView: View {
     @Environment(\.modelContext) var contex
     @State private var isShowingTaskEdit = false
     @State private var isShowingTaskDetail = false
+    var notificationManager = NotificationManager()
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .top, spacing: 5) {
@@ -41,6 +42,9 @@ struct NewTaskRowView: View {
                         Label(task.dueDate.format("dd MMM HH:mm"), systemImage: "clock")
                             .font(.callout)
                             .environment(\.locale, Locale(identifier: "en_GB"))
+                    }
+                    .onAppear {
+                        notificationManager.scheduleNotification(title: task.title, subtitle: task.taskDescription, date: task.dueDate, repeats: false)
                     }
                     .foregroundColor(.black)
                     .padding(.horizontal, 15)

@@ -20,7 +20,7 @@ struct SwipeAction<Content: View>: View {
     var body: some View {
         ScrollViewReader { scrollProxy in
             ScrollView(.horizontal) {
-                LazyHStack(spacing: 0) {
+                LazyHStack(spacing: 5) {
                     content
                         .containerRelativeFrame(.horizontal)
                         .background {

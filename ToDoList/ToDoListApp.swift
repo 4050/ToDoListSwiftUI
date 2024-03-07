@@ -10,10 +10,14 @@ import SwiftData
 
 @main
 struct ToDoListApp: App {
+    var notificationManager = NotificationManager()
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .modelContainer(for: TaskModel.self)
+                .onAppear {
+                    notificationManager.requestPermission()
+                }
         }
     }
 }
